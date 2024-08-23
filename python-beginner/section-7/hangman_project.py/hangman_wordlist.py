@@ -1,0 +1,16 @@
+words_list = [
+    "LION",
+    "TIGER",
+    "BANANA",
+    "BOTTLE",
+    "ORANGE",
+    "STRIKE",
+    "DECEPTION",
+    "FEELINGS",
+    "COMPLEXITY",
+    "TURTLE",
+    "JOURNEY",
+    "DUNGEON",
+    "STOMACH",
+    "PLANET",
+]

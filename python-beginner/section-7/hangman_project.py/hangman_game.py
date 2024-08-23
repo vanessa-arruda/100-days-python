@@ -1,88 +1,6 @@
 import random
-
-# global variables
-words_list = [
-    "LION",
-    "TIGER",
-    "BANANA",
-    "BOTTLE",
-    "ORANGE",
-    "STRIKE",
-    "DECEPTION",
-    "FEELINGS",
-    "COMPLEXITY",
-    "TURTLE",
-    "JOURNEY",
-    "DUNGEON",
-    "STOMACH",
-    "PLANET",
-]
-
-hangman = [
-    r"""
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-""",
-    r"""
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-""",
-]
+from hangman_wordlist import words_list
+from hangman_logo import hangman
 
 
 def get_word(word_list: list) -> str:
@@ -96,11 +14,15 @@ def guess_a_letter() -> str:
     return guess
 
 
-def check_guess() -> str:
-    print("------- Let's play HANGMAN!! -------")
-    print(hangman[0])
-    print("* Guess the word: ")
+def game() -> str:
+    print("-------------------------------------------")
+    print("-------- Let's play HANGMAN GAME!! --------")
+    print("-------------------------------------------")
+    print(f"{hangman[0]}\n")
+
     chosen_word = get_word(words_list)
+    print(f"There are a total of {len(chosen_word)} characters:\n")
+
     # print(chosen_word)
     placeholder = "_ " * len(chosen_word)
     print(f"{placeholder}\n")
@@ -121,22 +43,24 @@ def check_guess() -> str:
 
         for letter in chosen_word:
             if guess == letter:
-                display += letter
+                display += letter + " "
                 correct_letters.append(guess)
             elif letter in correct_letters:
-                display += letter
+                display += letter + " "
             else:
-                display += "_"
+                display += "_ "
 
         print(display)
-        if "_" not in display:
+        if "_ " not in display:
+            print()
             print("You won! Congratulations!")
             game_over = True
         elif live_counter <= 0:
+            print()
             print("Game over! You've run out of lives.")
             game_over = True
 
     return
 
 
-check_guess()
+game()

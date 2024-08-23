@@ -33,8 +33,13 @@ def game() -> str:
     hangman_idx = 0
 
     while not game_over:
+        print()
+        print(f"****** You have {live_counter} lives left! ******\n")
         display = ""
         guess = guess_a_letter()
+
+        if guess in correct_letters:
+            print(f"You've already guessed {guess}. Try again!")
 
         if guess not in chosen_word:
             live_counter -= 1

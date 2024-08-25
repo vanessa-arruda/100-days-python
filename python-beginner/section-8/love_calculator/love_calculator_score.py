@@ -1,10 +1,8 @@
 from count_true_love import count_true_love
 
 
-def get_name():
-    name = input("Type a name: ").upper()
-
-    return name
+def get_name() -> str:
+    return input("Type a name: ").upper()
 
 
 def love_calculator_score(first_name: str, second_name: str) -> int:
@@ -12,9 +10,7 @@ def love_calculator_score(first_name: str, second_name: str) -> int:
     name1 = count_true_love(first_name)
     name2 = count_true_love(second_name)
     print()
-    print("Love Score Calculator\n")
-    print("Let's see if the score of the two name combinations!\n")
-    print(f"{first_name} & {second_name}")
+    print(f"Checking {first_name} & {second_name} love score...")
 
     # store summed values
     combined_values = {}
@@ -55,5 +51,8 @@ Love Score = {combined_total_true}{combined_total_love}
         """
     )
 
+
+print("Love Score Calculator\n")
+print("Let's see if the score of the two name combine together!\n")
 
 love_calculator_score(first_name=get_name(), second_name=get_name())
